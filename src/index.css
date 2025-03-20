@@ -1,13 +1,657 @@
-body {
+/* ✅ Ensure Full Page Covers Entire Screen */
+body, html {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  overflow: hidden; /* Prevent page scrolling */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ✅ Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* ✅ Fix Header & Footer Position */
+.header {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footer-links {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* ✅ Login Form - Scrollable */
+.login-container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 70vh; /* Keep form height fixed */
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enables scrolling if content overflows */
+}
+
+/* ✅ Prevent Header & Footer from Moving */
+.login-container h1, 
+.login-container h2, 
+.login-container p {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* ✅ Fix Input Fields */
+.form-group {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+}
+
+/* ✅ Fix Buttons */
+.primary-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Social Logins */
+.social-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+/* ✅ Make It Responsive */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+  .login-container {
+    width: 90%;
+    min-height: 75vh;
+  }
+
+  .header, .footer-links {
+    position: relative;
+    padding: 10px;
+  }
+
+/* ✅ Ensure Full Page Covers Entire Screen */
+body, html {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  overflow: hidden; /* Prevents unwanted scrolling */
+}
+
+/* ✅ Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* ✅ Header (Fixes PrashaSync Going Out of Box) */
+.header {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header h2 {
+  font-size: 18px;
+  color: #444;
+}
+
+/* ✅ Footer (Fixes Terms of Use Going Out of Box) */
+.footer-links {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footer-links a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Fix Login Form Layout */
+.login-container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 75vh; /* Ensures full height */
+  padding: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enables scrolling if content overflows */
+}
+
+/* ✅ Form Inputs & Labels */
+.form-group {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+}
+
+/* ✅ Fix Buttons */
+.primary-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Fix Social Login Buttons */
+.social-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+/* ✅ Right Side - Image */
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ Fix for OTP Page */
+.otp-container {
+  text-align: center;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ OTP Input Boxes (Fixes Visibility Issue) */
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.otp-box {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  background-color: white;
+  color: black;
+}
+
+.otp-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ✅ Resend OTP Link */
+.resend-otp {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.resend-otp:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Mobile View Fix */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    width: 100vw;
+    height: auto; /* Allow scrolling on mobile */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-container {
+    width: 90%;
+    min-height: 75vh;
+  }
+
+  .image-container {
+    display: none; /* Hide image on smaller screens */
+  }
+}
+  
+
+/* ✅ Fix Footer Position */
+.footer-links {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  padding: 10px 0;
+}
+
+/* ✅ Ensure Links Stay Inside */
+.footer-links a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px; /* Adjust spacing */
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Ensure Login Box is Tall Enough */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push footer to bottom */
+  align-items: center;
+  height: 100%;
+  min-height: 85vh; /* Ensures footer doesn't move up */
+  padding-bottom: 50px; /* Space for footer */
+  position: relative;
+}
+
+/* ✅ Fix for Mobile Screens */
+@media (max-width: 900px) {
+  .footer-links {
+    position: relative; /* Prevent overlap */
+    bottom: auto;
+    margin-top: 20px;
+  }
+}
+/* ✅ Onboarding Page - Full-Screen Centered */
+.onboarding-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 450px;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* ✅ Page Title */
+.onboarding-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+/* ✅ Subtitle */
+.onboarding-container p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: left;
+  width: 100%;
+}
+
+/* ✅ Options - Like Checkboxes */
+.option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.option-container label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.option-container label:hover {
+  background-color: #e3e3e3;
+}
+
+.option-container input[type="checkbox"],
+.option-container input[type="radio"] {
+  display: none; /* Hide default inputs */
+}
+
+/* ✅ Checked Effect */
+.option-container input[type="checkbox"]:checked + label,
+.option-container input[type="radio"]:checked + label {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+/* ✅ Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ✅ Back Button */
+.back-button {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ccc;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #b0b0b0;
+}
+
+/* ✅ Primary Button */
+.primary-button {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #333;
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 900px) {
+  .onboarding-container {
+    width: 95%;
+    padding: 30px;
+  }
+}
+/* ✅ Option Container - Checkboxes & Radio */
+.option-container label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  position: relative;
+}
+
+/* ✅ Hide Default Checkboxes & Radio Buttons */
+.option-container input[type="checkbox"],
+.option-container input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ✅ Custom Checked State */
+.option-container input[type="checkbox"]:checked + label,
+.option-container input[type="radio"]:checked + label {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+/* ✅ Fix Hover State */
+.option-container label:hover {
+  background-color: #e3e3e3;
+}
+
+/* ✅ Ensure Buttons Have Proper Styling */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.primary-button, .back-button {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-button {
+  background-color: black;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #333;
+}
+
+.back-button {
+  background-color: #ccc;
+  color: black;
+}
+
+.back-button:hover {
+  background-color: #b0b0b0;
+}
+/* ✅ Checkbox & Radio Buttons Styling */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  position: relative;
+  gap: 10px;
+}
+
+/* ✅ Hide Default Inputs */
+.checkbox-label input[type="checkbox"],
+.checkbox-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ✅ Custom Checkbox */
+.custom-checkbox,
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+/* ✅ When Checkbox is Checked */
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: black;
+  border-color: black;
+}
+
+/* ✅ When Radio is Checked */
+.checkbox-label input[type="radio"]:checked + .custom-radio {
+  background-color: black;
+  border-color: black;
+  border-radius: 50%;
 }

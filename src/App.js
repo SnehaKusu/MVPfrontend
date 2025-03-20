@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Authentication/Login"; // Ensure path matches folder structure
+import ForgotPassword from "./Authentication/ForgotPassword";
+import Dashboard from "./Authentication/Dashboard"; // If inside Authentication folder
+import OtpVerification from "./Authentication/OtpVerification";
+import Onboarding from "./Authentication/Onboarding"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp-verification" element={<OtpVerification />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+
+      </Routes>
+    </Router>
   );
 }
 
